@@ -38,8 +38,8 @@ if ($_POST){
                                 }
                                 $_SESSION['id']=$id; 
                                       if($_SESSION['id']){
-                                         
-                                          echo json_encode(['status'=>true,"message" => "successful"]);
+                                        
+                                          echo json_encode(['status'=>true,"message" => "successful","id"=>$_SESSION['id']]);
                                       }
                                    //End get seesion
                              }else{

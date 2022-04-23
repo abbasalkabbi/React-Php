@@ -12,23 +12,32 @@ class App extends Component{
 constructor(props) {
     super(props);
     this.state = {
-       
+     
     }
   }
-
-    render(){
-     // let {user}=this.state
+ 
+   
+    render(){ 
         return(
-           <BrowserRouter>
+          <div>
+          
+   <BrowserRouter>
           <Routes>
+            
             <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-             <Route path="register" element={<Register/>}/>
-              
+              {
+                localStorage.getItem('id')
+               ? <Route index element={<Home />} />
+               : <Route index element={<Register />} />
+              }
+     
+          <Route path="register" element={<Register/>}/>
                <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
+          </div>
+        
         )
     }
 }

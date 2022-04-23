@@ -1,6 +1,8 @@
 import { Component } from 'react'
 import axios from 'axios';
+
 const API_PATH = 'http://localhost/react-php/api/register.php';
+
 class Register extends Component{
     constructor(props) {
         super(props);
@@ -10,9 +12,12 @@ class Register extends Component{
           password: '',
           status:'',
           info:[],
+          id:'',
 
         }
       }
+    
+      
      //send data form
       handleFormSubmit( event ) {
         
@@ -28,12 +33,14 @@ class Register extends Component{
             headers: { 'content-type': 'application/json' },
             data: reqister_data
           })
-            .then(result => this.setState({ info: result.data.message,status:result.data.status}))
+            .then(result => this.setState({ info: result.data.message,status:result.data.status,id:result.data.id}))
+
          
             
       }
       error(){
         if(this.state.status ===false){
+         
           return(
             <div class="alert  alert-danger alert-dismissible fade show text-center" role="alert">
           
@@ -43,13 +50,17 @@ class Register extends Component{
           )
         
         }else{
-          console.log( this.state.info)
+        
+          localStorage.setItem('id',this.state.id)
         }
       }
+      
       render(){
           let {fname,email,password}=this.state
+          
         return(
             <div className="container d-flex justify-content-center ">
+              
                <form className="mt-1  ">
                 
                  <div className="card bg-light shadow-lg p-3 mb-5 bg-body rounded ">
