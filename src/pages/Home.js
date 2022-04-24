@@ -1,19 +1,16 @@
 import React from "react";
 import { Component } from "react";
+import { Navigate } from "react-router";
 
 class Home extends Component{
-   loogged(){
-       if(localStorage.getItem('id')){
-           console.log('true')
-       }else{
-           console.log('flase')
-       }
-   }
+  
     render(){
         return(
             <div>
-                {localStorage.getItem('id') ? 'run': 'dd'}
-                {this.loogged()}
+               
+                
+                {!localStorage.getItem('id') ? <Navigate replace to="/register" /> : ''}
+           
              
                 home {localStorage.getItem('id')}
          

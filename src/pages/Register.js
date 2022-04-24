@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import axios from 'axios';
-
+import { Navigate } from 'react-router';
 const API_PATH = 'http://localhost/react-php/api/register.php';
 
 class Register extends Component{
@@ -50,9 +50,17 @@ class Register extends Component{
           )
         
         }else{
-        
+        if(this.state.info=='successful'){
           localStorage.setItem('id',this.state.id)
+          if(localStorage.getItem('id')){
+            return(
+            <Navigate replace to="/" />
+            )
+          }
+          }
         }
+          
+        
       }
       
       render(){
@@ -60,7 +68,8 @@ class Register extends Component{
           
         return(
             <div className="container d-flex justify-content-center ">
-              
+              {/* if you are loggined */}
+              {localStorage.getItem('id') ? <Navigate replace to="/" /> :''}
                <form className="mt-1  ">
                 
                  <div className="card bg-light shadow-lg p-3 mb-5 bg-body rounded ">

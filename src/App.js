@@ -25,11 +25,9 @@ constructor(props) {
           <Routes>
             
             <Route path="/" element={<Layout />}>
-              {
-                localStorage.getItem('id')
-               ? <Route index element={<Home />} />
-               : <Route index element={<Register />} />
-              }
+           
+             <Route index element={<Home />} />
+            
      
           <Route path="register" element={<Register/>}/>
                <Route path="*" element={<NoPage />} />
