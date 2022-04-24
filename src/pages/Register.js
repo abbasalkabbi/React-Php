@@ -103,6 +103,7 @@ class Register extends Component{
                                               <label for="exampleInputPassword1" class="form-label">Password</label>
                                               <input type="password" class="form-control" id="exampleInputPassword1"
                                                value={password}
+                                               minlength="8" required 
                                                onChange={e => this.setState({ password: e.target.value })}
                                               />
                            </div>
