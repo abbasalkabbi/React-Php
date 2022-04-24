@@ -106,8 +106,16 @@ class Register extends Component{
                                                onChange={e => this.setState({ password: e.target.value })}
                                               />
                            </div>
-       
-                  <button type="submit" onClick={e => this.handleFormSubmit(e)} class="btn btn-primary">Register</button>
+                     {/* Login Button */}
+                       <div class="text-center text-lg-start mt-4 pt-2">
+                                              <button type="submit" onClick={e => this.handleFormSubmit(e)} class="btn btn-primary">Register</button>
+                                               <p class="small fw-bold mt-2 pt-1 mb-0">I have an account? 
+                                               <a href="/login" class="link-primary"> Login</a>
+                                               </p>
+                        </div>
+                      {/* END Login Button */}
+                 
+               
                    </div>
                  </div>
                 

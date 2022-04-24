@@ -5,6 +5,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 
 class App extends Component{
@@ -26,11 +27,10 @@ constructor(props) {
             
             <Route path="/" element={<Layout />}>
            
-             <Route index element={<Home />} />
-            
-     
-          <Route path="register" element={<Register/>}/>
-               <Route path="*" element={<NoPage />} />
+             <Route index element={<Home />} />   
+             <Route path="register" element={<Register/>}/>
+             <Route path="Login" element={<Login/>}/>
+             <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
