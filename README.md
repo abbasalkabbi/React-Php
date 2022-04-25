@@ -9,17 +9,3 @@ React-Php
 
 ## Register
 ![Web capture_25-4-2022_22844_localhost](https://user-images.githubusercontent.com/75854041/165001119-764f8cb8-30a5-411e-9325-213c63e7a52f.jpeg)
-
-<?
-//$file_chunks = explode(";base64,", $req->image);
-       /*
-    $file_chunks = explode(";base64,", $req->image);
-  
-    $fileType = explode("image/", $file_chunks[0]);
-    $image_type = $fileType[1];
-    $base64Img = base64_decode($file_chunks[1]);
-    
-    $file = $DIR . uniqid() . '.'.$image_type;
-    file_put_contents($file, $base64Img); 
-    */
-    ?>
