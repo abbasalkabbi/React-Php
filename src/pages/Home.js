@@ -15,10 +15,9 @@ class Home extends Component{
    // created method fetch data from api
    componentDidMount(){
        if(localStorage.getItem('id')){
-        const {id} = this.state.id
  
    
-        fetch(`http://localhost/react-php/api/data.php?id=1`)
+        fetch(`${url+localStorage.getItem('id')}`)
         .then((res)=>res.json())
         .then((json)=>{
             console.log(json.id)
