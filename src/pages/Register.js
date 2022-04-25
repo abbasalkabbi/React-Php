@@ -10,11 +10,13 @@ class Register extends Component{
           fname: '',
           email: '',
           password: '',
+          selectedImage:'',
           status:'',
           info:[],
           id:'',
 
         }
+        this.onFileChange = this.onFileChange.bind(this);
       }
     
       
@@ -26,6 +28,7 @@ class Register extends Component{
             fname:this.state.fname,
             email: this.state.email,
             password:this.state.password,
+            image: this.state.selectedImage
         }
         axios({
             method: 'post',
@@ -33,11 +36,24 @@ class Register extends Component{
             headers: { 'content-type': 'application/json' },
             data: reqister_data
           })
-            .then(result => this.setState({ info: result.data.message,status:result.data.status,id:result.data.id}))
+          .then(result => this.setState({ info: result.data.message,status:result.data.status,id:result.data.id}))
+            
 
          
             
       }
+      // upload image
+      onFileChange(e) {
+        let files = e.target.files;
+        let fileReader = new FileReader();
+        fileReader.readAsDataURL(files[0]);
+ 
+        fileReader.onload = (event) => {
+            this.setState({
+                selectedImage: event.target.result,
+            })
+        }
+    }
       error(){
         if(this.state.status ===false){
          
@@ -107,6 +123,12 @@ class Register extends Component{
                                                onChange={e => this.setState({ password: e.target.value })}
                                               />
                            </div>
+                      {/* upload image */}
+                      <div class="mb-5">
+                                      <label for="Image" class="form-label">Bootstrap 5 image Upload with Preview</label>
+                                      <input class="form-control" type="file" id="formFile"  onChange={this.onFileChange}/>
+                      </div>
+
                      {/* Login Button */}
                        <div class="text-center text-lg-start mt-4 pt-2">
                                               <button type="submit" onClick={e => this.handleFormSubmit(e)} class="btn btn-primary">Register</button>
